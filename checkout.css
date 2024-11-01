@@ -1,0 +1,134 @@
+/* تصميم عام للصفحة */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 105vh;
+}
+
+h2 {
+    text-align: start;
+    color: #2c3e50;
+    padding-right: 30px;
+}
+
+.checkout-summary {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 400px;
+}
+
+.checkout-summary p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.checkout-summary p strong {
+    color: #27ae60;
+    font-size: 18px;
+}
+
+button {
+    width: 100%;
+    background-color: #27ae60;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}
+
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.payment-option input {
+    margin-right: 10px;
+}
+
+.payment-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.visa-details {
+    margin-left: 40px; /* محاذاة تفاصيل الفيزا مع خيارات الدفع */
+    padding: 10px 0;
+}
+
+.visa-details label {
+    display: block;
+    margin-top: 10px;
+}
+
+.visa-details input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.back-arrow {
+    text-decoration: none;
+    color: #4CAF50; 
+    font-size: 24px;
+    margin: 20px; 
+    margin-top: 30px; 
+    transition: color 0.3s ease;
+    border: 2px solid #4CAF50; 
+    padding: 10px; 
+    border-radius: 8px; 
+}
+
+.back-arrow:hover {
+    color: #388E3C; 
+    border-color: #388E3C; 
+}
+
+.back-arrow i {
+    transition: transform 0.3s ease;
+}
+
+.back-arrow:hover i {
+    transform: translateX(-5px); 
+}
+
+
+@media (max-width: 480px) {
+    .checkout-summary {
+        width: 100%;
+        padding: 20px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

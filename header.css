@@ -1,0 +1,79 @@
+
+.header {
+    
+    height: 275px;
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1350px;
+    height: 80px; 
+    background-color: #2c6e49;
+    padding: 0 20px; 
+    border-bottom-right-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}    
+
+.logo i {
+    color: #fff; 
+    font-family: 'Arial', sans-serif;
+    font-size: 30px; 
+    margin-right: 10px; 
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-left: 40px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ddd;
+    font-weight: bold;
+    font-size: 20px; /* تكبير حجم الخط للروابط */
+    transition: color 0.3s; /* إضافة تأثير انتقالي للون */
+}
+
+.navbar ul li a:hover {
+    color: #4CAF50; /* تغيير لون الرابط عند التمرير */
+}
+
+
+.icons button {
+    background-color: transparent;
+    border: none;
+    color: #ddd;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 27px;
+}
+
+
+
+.heart-btn:hover{
+color: #c0392b;
+
+}
+.menu-icon {
+    display: none;
+}
+
+
+.cta {
+    background-color: #2c6e49;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}

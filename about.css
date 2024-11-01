@@ -1,0 +1,247 @@
+/*----------about--------------*/
+.about_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.about_img-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about_img {
+    max-width: 100%;
+    border-radius: 50px;
+width: 90%;
+}
+
+.about-details {
+    flex: 1;
+    padding-left: 2rem;
+}
+
+.about-details h2 {
+    color: #145a40;
+    font-size: 28px;
+    margin-bottom: 1rem;
+}
+
+.about-details p {
+    font-size: 16px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.about__details-icon {
+    margin-right: 10px;
+    color: #145a40;
+    font-size: 20px;
+}
+
+.button-shop-div{
+padding: 10px;
+text-align: center;
+}
+.button-shop {
+    padding:10px;
+    background-color: #145a40;
+    color: #fff;
+    text-decoration: none;
+  border: #145a40 solid 1px;
+    border-radius: 8px;
+cursor: pointer;    
+    
+    font-size: 16px;
+}
+.button-shop:hover{
+    background-color:seagreen ;
+}
+
+/*-------------steps-------------*/
+.steps {
+    background-color: #145a40;
+    padding: 3rem 2rem 2rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr); /* صفين */
+    grid-template-columns: repeat(2, 1fr); /* عمودين */
+    gap: 2rem;
+    padding-top: 1rem;
+position: relative;
+}
+
+.steps-title h2 {
+    color: #145a40;
+    text-align: center;
+    font-size: 30px;
+    grid-column: span 2; /* يمتد عبر العمودين */
+}
+
+.icon-card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 200px; /* ارتفاع ثابت لجميع البطاقات */
+}
+
+.icon-card-img img {
+    background-color: #145a40;
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    border-radius: .25rem;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    transition: .3s;
+    height: 55px;
+    width: 55px;
+}
+
+.icon-card-title {
+    font-size: 17px;
+    margin-bottom: 3px;
+}
+
+.icon-card p {
+    font-size: 14px;
+}
+
+.icon-card:hover {
+    transform: translateY(-10px);
+}
+
+
+.secure-shipping {
+    grid-row: 1 / 2; 
+    grid-column: 1; 
+}
+
+.quality-products {
+    grid-row: 1 / 2; 
+    grid-column: 2; 
+}
+
+.days-returns {
+    grid-row: 2 / 3; 
+    grid-column: 1; 
+}
+
+.secure-payments {
+    grid-row: 2 / 3; 
+    grid-column: 2; 
+}
+
+
+
+
+/* Footer Styling */
+footer {
+    background-color: #2e8b57; /* Sea Green */
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.container-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.social-links li {
+    display: inline-block;
+    margin: 0 15px;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.social-links:hover li {
+    opacity: 0.5; /* يجعل باقي الأيقونات شبه شفافة */
+}
+
+.social-links li:hover {
+    opacity: 1; /* يجعل الأيقونة المفعلة ظاهرة بشكل كامل */
+}
+
+.facebook:hover {
+    color: #3b5998;
+}
+
+.instagram:hover {
+    color: #e1306c;
+}
+
+.tiktok:hover {
+    color: #010101;
+}
+
+.whatsapp:hover {
+    color: #25D366;
+}
+
+.phone:hover {
+    color: #3b5998;
+}
+
+.footer__content {
+    margin: 30px 0;
+}
+
+.footer__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer__cards {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer__card {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer__card:hover {
+    transform: scale(1.1);
+}
+
+.footer-rights {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #d3d3d3;
+}
+
+
+

@@ -1,0 +1,229 @@
+/*-------------contact page-----------*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    filter: brightness(90%);
+}
+
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    max-width: 800px;
+    width: 80%;
+}
+
+.contact-us-h1 {
+    text-align: center;
+    z-index: 2;
+    font-size: 25px;
+    color: #333;
+    position: absolute;
+    top: 6%;
+    padding: 10px 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.contact-form {
+    width: 30%;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background-color: #fff;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    width: 220px;
+    min-height: 120px;
+}
+
+.contact-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-form button i {
+    margin-right: 10px;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.contact-image img {
+    width: 90%;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #2e8b57; /* Sea Green */
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.container-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.social-links li {
+    display: inline-block;
+    margin: 0 15px;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.social-links:hover li {
+    opacity: 0.5; /* يجعل باقي الأيقونات شبه شفافة */
+}
+
+.social-links li:hover {
+    opacity: 1; /* يجعل الأيقونة المفعلة ظاهرة بشكل كامل */
+}
+
+.facebook:hover {
+    color: #3b5998;
+}
+
+.instagram:hover {
+    color: #e1306c;
+}
+
+.tiktok:hover {
+    color: #010101;
+}
+
+.whatsapp:hover {
+    color: #25D366;
+}
+
+.phone:hover {
+    color: #3b5998;
+}
+
+.footer__content {
+    margin: 30px 0;
+}
+
+.footer__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer__cards {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer__card {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer__card:hover {
+    transform: scale(1.1);
+}
+
+.footer-rights {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #d3d3d3;
+}
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+

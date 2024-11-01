@@ -1,0 +1,87 @@
+/* الأساسيات العامة */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+border: #ddd solid 1px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* تنسيق النموذج */
+form {
+    display: flex;
+    flex-direction: column;
+align-items: center;
+
+}
+
+.logo{
+font-size: 200%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+select{
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 40%;
+    box-sizing: border-box;
+
+}
+.logo i {
+    color: #27ae60; 
+    font-family: 'Arial', sans-serif;
+    font-size: 30px; 
+    margin-right: 10px; 
+}
+label {
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"], textarea, input[type="file"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 40%;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical; /* يسمح بتغيير حجم التمرير عموديًا فقط */
+}
+
+/* تنسيق الزر */
+button[type="submit"] {
+    padding: 10px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #27ae60;
+}

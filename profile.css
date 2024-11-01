@@ -1,0 +1,136 @@
+/* Reset بعض القيم الافتراضية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* نمط الجسم العام */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* حاوية الملف الشخصي */
+.profile-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* صورة الملف الشخصي */
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+/* معلومات المستخدم */
+.profile-info {
+    text-align: center;
+    margin-bottom: 20px;
+padding: 40px;
+}
+
+.profile-info h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+padding: 10px;
+}
+
+.profile-info p {
+    font-size: 16px;
+    color: #666;
+padding: 10px;
+}
+
+
+
+
+/* رابط تعديل الملف الشخصي */
+.edit-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.edit-link a {
+    text-decoration: none;
+    color: #3498db;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.edit-link a:hover {
+    text-decoration: underline;
+}
+.logout-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.logout-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
+}
+.order-link{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+.order-link a{
+    text-decoration: none;
+    color: #3498db;
+    font-size: 16px;
+    font-weight: bold;  
+    border: #3498db solid 1px;
+    border-radius: 10px; 
+    padding: 10px;
+}
+.order-link a:hover {
+
+    background-color: #3498db;
+    color: #fff;
+}
+.back-arrow {
+position: fixed;
+    text-decoration: none;
+    color: #4CAF50; 
+    font-size: 24px;
+    margin: 20px; 
+    margin-top: 30px; 
+    transition: color 0.3s ease;
+    border: 2px solid #4CAF50; 
+    padding: 10px; 
+    border-radius: 8px; 
+}
+
+.back-arrow:hover {
+    color: #388E3C; 
+    border-color: #388E3C; 
+}
+
+.back-arrow i {
+    transition: transform 0.3s ease;
+}
+
+.back-arrow:hover i {
+    transform: translateX(-5px); 
+}

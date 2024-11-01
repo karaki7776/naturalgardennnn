@@ -1,0 +1,124 @@
+/* القاعدة العامة للصفحة */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* حاوية الصفحة */
+.edit-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* عنوان الصفحة */
+.edit-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* تنسيق الصورة الشخصية */
+.profile-pic-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* تنسيق نموذج التعديل */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input[type="text"], form input[type="email"], form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form input[type="file"] {
+    margin-bottom: 15px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* رسالة الخطأ */
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+    /* Footer Styling */
+    footer {
+        background: #2e8b57; /* Sea Green */
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+    
+    .social-links {
+        list-style: none;
+        padding: 0;
+    }
+    
+    
+    .social-links li {
+        display: inline;
+        margin: 0 10px;
+    }
+    .social-links a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    } 
+    .facebook:hover{
+    color: #3b5998;
+    }
+    .instagram:hover{
+     color:#e1306c   
+    }
+    .tiktok:hover{
+        color: #010101;
+    }
+    .whatsapp:hover {
+        color: #25D366;
+    }
+    .phone:hover{
+    color:#3b5998 ;
+    
+    }

@@ -1,0 +1,218 @@
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+
+}
+
+.product-item {
+    background-color: #f4f4f4;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+ 
+}
+
+.product-item:hover{
+    transform: translateY(-5px);
+}
+
+
+
+.our-product {
+    color: #1e6b47; /* لون العنوان */
+    font-size: 20px; /* حجم الخط */
+    text-align: center; /* محاذاة النص في المنتصف */
+    font-family: 'Arial', sans-serif; /* خط احترافي */
+    letter-spacing: 2px; /* تباعد بين الحروف */
+    text-transform: uppercase; /* تحويل النص إلى حروف كبيرة */
+    margin-top: 20px; /* مسافة من الأعلى */
+    margin-bottom: 40px; /* مسافة من الأسفل */
+    position: relative; /* وضعية لتطبيق تأثير أسفل العنوان */
+}
+
+.our-product h2 {
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1e6b47; /* خط سفلي */
+    font-weight: 600; /* سمك الخط */
+  
+}
+
+.out-of-stock {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+/* تنسيق شريط البحث */
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    padding-left: 10%;
+}
+
+.search-bar-container input[type="text"] {
+    width: 350px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar-container input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-bar-container input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.product-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.product-item h3 {
+    font-size: 1;
+    margin: 0; /* إزالة الهامش العلوي والسفلي */
+}
+.product-item p {
+    font-size: 15px;
+    color: black;
+    margin: 0; /* إزالة أي هوامش حول السعر */
+    margin-top: 10px; /* تعديل المسافة من اسم المنتج */
+}
+.div-add-to-cart{
+
+display: block;
+}
+.add-to-favorites{
+
+color: #1e6b47;
+cursor: pointer;
+margin-left: 50px;
+padding: 10px;
+font-size: 25px;
+}
+.add-to-favorites:hover{
+color: #c0392b ;
+}
+
+.div-edit{
+
+    display: flex;
+    justify-content: space-between;
+}
+.div-edit a{
+display: flex;
+position: relative;
+text-decoration: none;
+color: #2c6e49;
+border: #ddd solid 1px;
+border-radius: 10px;
+justify-content: center;
+align-items: center;
+width: 100px;
+height: 40px;
+
+}
+.div-edit a:hover{
+background-color: #2c6e49;
+color: #ddd;
+transform: translateY(-5px);
+}
+.div-add-to-cart form input{
+border: #ddd solid 1px ;
+background-color: #2c6e49;
+font-size: 20px;
+cursor: pointer;
+color: #ddd;
+border-radius: 5px;
+margin: 20px auto;
+font-weight: bold;
+}
+
+.div-add-to-cart form input:hover{
+background-color: #2e8b57;
+transform: translateY(-5px);
+}
+.add-product-card{
+
+    padding-left: 32%;
+margin: 20px;
+}
+.add-product {
+    border: 1px solid #ddd; /* حدود مشابهة للـ product-item */
+    color: #276747;
+    padding: 0px;
+    text-align: center;
+    background-color: #fff; /* خلفية بيضاء مشابهة للـ product-item */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ظل مشابه للـ product-item */
+    transition:  0.3s ease;
+    height: 50px; /* تحديد ارتفاع ثابت */
+    width: 350px; /* تحديد عرض ثابت */
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative; /* لتمكين وضع الـ + في المركز */
+    text-decoration: none;
+
+}
+
+.add-product:hover {
+    background-color: #e0f7e9; /* لون خلفية عند التمرير */
+}
+
+
+.plus-icon {
+    font-size: 48px; 
+    color: #2e8b57; 
+    font-weight: bold;
+}
+.view-all {
+    display: inline-flex;
+   text-align: center;
+    background-color: #fff; 
+    color: #2e8b57;
+ 
+    border-radius: 8px; 
+    padding: 10px 20px; 
+    font-size: 30px; 
+    font-weight: bold; 
+    text-decoration: none; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+    cursor: pointer;
+    margin: 20px auto; 
+    display: block; 
+
+}
+
+.view-all:hover {
+    background-color: #2e8b57; 
+    color: #fff; 
+}
