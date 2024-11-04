@@ -59,7 +59,10 @@ if (isset($_SESSION['role'])) {
                }
                 ?>
                <li><a href="categorie.php">Categorie</a></li>
-               
+              <?php
+               if($admin==true){
+            echo"   <li><a href='orders-admin.php'>Orders</a></li>";
+               }?>
             </ul>
         </nav>
        
