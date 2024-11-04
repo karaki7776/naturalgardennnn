@@ -100,15 +100,15 @@ if (isset($_POST['logout'])) {
             <p>Address: <?php echo htmlspecialchars($address); ?></p>
         </div>
 <?php 
-        if($admin == true ){
+        if($admin == false ){
             echo"<div class='order-link'>
-            <a href='orders-admin.php'>View Orders</a>
-        </div>";}  
+            <a href='orders.php'>View Orders</a>
+        </div>";}     
+        
         
 
-   else{ echo"<div class='order-link'>
-    <a href='orders.php'>View Orders</a>
-</div>";}  
+   else{ 
+    }  
          ?>
 </div>
     <!-- رابط تعديل الملف الشخصي -->
