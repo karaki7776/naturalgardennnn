@@ -137,12 +137,15 @@ color: crimson;
     background-color: #218838;
 }
 
-
+.stock-error {
+    color: red;
+    font-weight: bold; 
+}
 
 /* لجعل الشبكة تستجيب */
 @media (max-width: 1200px) {
     .cart-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 أعمدة على الشاشات الأصغر */
+        grid-template-columns: repeat(3, 1fr); 
     }
 }
 
