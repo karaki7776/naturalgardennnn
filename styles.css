@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -414,14 +415,30 @@ margin: 20px;
     
     
     
-    @media (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
         html {
             font-size: 85%;
+        max-width: 100%;
         }
-    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+      
+     
+            html, body {
+                font-size: 65%;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                overflow-x: hidden; /* لمنع التمرير الأفقي */
+            }    
         header {
             padding: 1rem;
             flex-direction: column;
+        max-width: 100%;
         }
     
         .nameofstore {
@@ -435,7 +452,56 @@ margin: 20px;
             margin-bottom: 1rem;
             text-align: center;
         }
+        .icons button {
+            background-color: transparent;
+            border: none;
+            color: #ddd;
+            cursor: pointer;
+            padding: 1px;
+            font-size: 27px;
+        }
+
+        .text-content {
+            max-width: 100%;
+        
+        }
+        
+        .text-content h2 {
+            color: #2c6e49;
+            font-size: 20px;
+            
+        font-family:'Courier New', Courier, monospace;
+        }
+        .text-content h2{
+font-size: 30px;
+
+        }
+        .text-content p {
+            color: #555;
+            font-size:20px;
+        
+        font-family:cursive;
+        }
+
+        .image-content img {
+            
+         width: 300px;
+         height: 300px;
+        padding-left: 30px;
+        padding-bottom: 20px;
+
+    }
+        h3{
+            font-size: 20px;
+        }
+           h4{
     
+            font-size: 15px;
+           }
+           .buttons {
+            font-size: 15px;
+        }     
+        
         .menu-icon{
            display: none;
         }
@@ -443,129 +509,57 @@ margin: 20px;
             padding-left: 0;
             margin: 1rem 0;
         }
-        nav ul {
-            list-style: none;
-            padding-top:0;
-            display: flex;
-            justify-content: center;
-            margin: 10px;
-        }
-    
-        nav ul li {
-            margin: 10px 15px;
-        }
+     
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ddd;
+    font-weight: bold;
+    font-size: 20px; /* تكبير حجم الخط للروابط */
+    transition: color 0.3s; /* إضافة تأثير انتقالي للون */
+}
+
+.navbar ul li a:hover {
+    color: #4CAF50; /* تغيير لون الرابط عند التمرير */
+}
     }
     
-    @media (max-width: 768px) {
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
         .header{
             height: 900px;
         }
-        .hero-content {
-            flex-direction: column;
-            text-align: center;
-            padding: 20px;
-        height: 700px;
-        }
-        .text-content {
-            max-width: 100%;
-            
-        }
-    
-        .image-content {
-            max-width: 80%;
-        }
-    
-        .image-content img {
-            max-width: 80%; /* عرض الصورة 80% من حجم النافذة */
-        }
-    
-        .buttons .btn {
-            display: block;
-            margin: 10px auto; /* جعل الأزرار في المنتصف */
-        }
-
-        .menu-icon {
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            z-index: 999;
-            display: inline-block;
-        }
-    
-       .menu-icon img {
-            width: 100%;
-            height: 100%;
-        }
+        
 
 
-.navbar {
-list-style-type: none;     
-            width: 150px;
-            background-color:#2e8b57;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-            color: white;
-            position: fixed;
-            top: 0;
-            left: -290px;
-            height:fit-content;
-            transition: left 0.3s ease;
-            z-index: 999;
-        }
-    
-        .menu-icon:hover + .navbar,
-        .navbar:hover {
-            left: 0;
-        }
-    
-        .menu-icon:active + .navbar,
-        .navbar:active {
-            right: 0;
-        }
-    
-        .navbar ul {
-            list-style-type: none;
+        * {
+            margin: 0;
             padding: 0;
-            display: block;
+            box-sizing: border-box;
         }
-    
-        .navbar ul li {
-            margin: 30px 0; 
         
-              
-  }
-    
-        .navbar ul li a {
-            text-decoration: none;
-            color: #ddd;
-            display: block;
-            padding: 4px;
-            
-            font-size: 15px;
-            transition: 0.3s;
-        }
-    
-        .navbar ul li a:hover {
-            background-color: #1e6b47;
-        }
-    
-        
-    
-    }
-    
-    
+      
+     
+            html, body {
+                font-size: 65%;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                overflow-x: hidden; /* لمنع التمرير الأفقي */
+            }
+    body{
 
-    
-        
-    /**/
-    @media (max-width: 450px) {
-        html {
-            font-size: 65%;
-        }
-    
+        width: 100%;
+    }
         .icons {
             margin-bottom: 2rem;
         }
@@ -573,11 +567,13 @@ list-style-type: none;
         .content {
             text-align: center;
             margin-left: 0;
+        
         }
     
         .nameofstore {
             text-align: center;
-            padding-right: 0;
+            
+        
         }
     
         nav ul {
@@ -592,4 +588,390 @@ list-style-type: none;
             width: 100%;
             height: auto;
         }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            height: 600px;
+            margin: 50px auto;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            color: white; 
+        }
+           
+        h3{
+            font-size: 20px;
+        }
+           h4{
+    
+            font-size: 15px;
+           }
+           .buttons {
+            font-size: 15px;
+        }          
+        
+        
+        .text-content {
+            max-width: 100%;
+        
+        }
+        
+        .text-content h2 {
+            color: #2c6e49;
+            font-size: 25px;
+            
+        font-family:'Courier New', Courier, monospace;
+        }
+        
+        .text-content p {
+            color: #555;
+            font-size: 20px;
+        
+        font-family:cursive;
+        }
+
+        .image-content img {
+            
+         width: 300px;
+         height: 200px;
+        padding-left: 30px;
+        padding-bottom: 20px;
+
     }
+       
+        
+        .btn {
+            padding: 12px 24px; 
+            border-radius: 25px; 
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+            display: inline-block; 
+        }
+        
+        .search-bar-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            padding-left: 10%;
+        }
+        
+        .search-bar-container input[type="text"] {
+            width: 250px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .search-bar-container input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .search-bar-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        .icons button {
+            background-color: transparent;
+            border: none;
+            color: #ddd;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 27px;
+        }
+        .menu-icon {
+            position: fixed;
+            display: flex;
+            top: 10px; 
+            left: 10px; 
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 999;
+        }
+        
+        .menu-icon img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .navbar {
+            list-style-type: none;
+            width: 100%; /* عرض القائمة */
+            background-color: #2e8b57;
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* ظل */
+            color: white;
+            position: fixed;
+            top: -300px; /* بدء الشريط خارج الشاشة عموديًا */
+            left: 0; /* ثبّت إلى اليسار */
+            height: fit-content;
+            transition: top 0.3s ease; /* تأثير الانزلاق العمودي */
+            z-index: 999;
+        }
+        
+        .menu-icon:hover + .navbar,
+        .navbar:hover {
+            top: 0; /* أظهر الشريط */
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+            display: block;
+        }
+        
+        .navbar ul li {
+            margin: 30px 0; /* تباعد بين العناصر */
+        }
+        
+        .navbar ul li a {
+            text-decoration: none;
+            color: #ddd;
+            display: block;
+            padding: 4px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        
+        .navbar ul li a:hover {
+            background-color: #1e6b47;
+        }
+    }           
+        
+    
+    
+    
+    
+
+    
+        
+    
+    @media only screen and (min-width: 300px) and (max-width: 479px) {
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+      
+     
+            html, body {
+                font-size: 65%;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                overflow-x: hidden; /* لمنع التمرير الأفقي */
+            }
+               
+        
+    body{
+
+        width: 100%;
+    }
+        .icons {
+            margin-bottom: 2rem;
+        }
+    
+        .content {
+            text-align: center;
+            margin-left: 0;
+        
+        }
+    
+        .nameofstore {
+            text-align: center;
+            
+        
+        }
+    
+        nav ul {
+            flex-direction: column;
+        }
+    
+        .search-form {
+            flex-direction: column;
+        }
+    
+     
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            height: 475px;
+            margin: 50px auto;
+            padding: 50px;
+            
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            color: white; /* اجعل النص باللون الأبيض ليتناسب مع الصورة */
+        }
+           
+            
+        
+        
+        .text-content {
+            max-width: 100%;
+        
+        }
+        
+        .text-content h2 {
+            color: #2c6e49;
+            font-size: 20px;
+            
+        font-family:'Courier New', Courier, monospace;
+        }
+        
+        .text-content p {
+            color: #555;
+            font-size: 15px;
+        
+        font-family:cursive;
+        }
+
+        .image-content img {
+            
+         width: 300px;
+         height: 200px;
+        padding-left: 30px;
+        padding-bottom: 20px;
+
+    }
+    h3{
+        font-size: 20px;
+    }
+       h4{
+
+        font-size: 15px;
+       }
+       .buttons {
+        font-size: 10px;
+    }
+        .btn {
+            padding: 12px 24px; 
+            border-radius: 25px; 
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+            display: inline-block; 
+        }
+        
+        .search-bar-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            padding-left: 10%;
+        }
+        
+        .search-bar-container input[type="text"] {
+            width: 250px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .search-bar-container input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .search-bar-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        .icons button {
+            background-color: transparent;
+            border: none;
+            color: #ddd;
+            cursor: pointer;
+            padding: 1px;
+            font-size: 27px;
+        }
+        .menu-icon {
+            position: fixed;
+            display: flex;
+            top: 10px; 
+            left: 10px; 
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 999;
+        }
+        
+        .menu-icon img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .navbar {
+            list-style-type: none;
+            width: 100%; /* عرض القائمة */
+            background-color: #2e8b57;
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* ظل */
+            color: white;
+            position: fixed;
+            top: -300px; /* بدء الشريط خارج الشاشة عموديًا */
+            left: 0; /* ثبّت إلى اليسار */
+            height: fit-content;
+            transition: top 0.3s ease; /* تأثير الانزلاق العمودي */
+            z-index: 999;
+        }
+        
+        .menu-icon:hover + .navbar,
+        .navbar:hover {
+            top: 0; /* أظهر الشريط */
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+            display: block;
+        }
+        
+        .navbar ul li {
+            margin: 30px 0; /* تباعد بين العناصر */
+        }
+        
+        .navbar ul li a {
+            text-decoration: none;
+            color: #ddd;
+            display: block;
+            padding: 4px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        
+        .navbar ul li a:hover {
+            background-color: #1e6b47;
+        }
+    }        
