@@ -1,21 +1,27 @@
 <?php
 session_start();
-include 'config.php'; // تأكد من تضمين ملف الاتصال بقاعدة البيانات
+include 'config.php'; 
 
-// التحقق من أن المستخدم هو super admin
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'super admin') {
+
+
+
+
+
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'super admin') {
+  
     header("Location: login-superadmin.php");
     exit();
 }
 
-// إضافة مدير جديد
+
+
 if (isset($_POST['add_admin'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $phone = $_POST['phone']; // إضافة رقم الهاتف
+    $phone = $_POST['phone']; 
 
-    // تأكد من تشفير كلمة المرور
+    
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // التحقق من وجود البريد الإلكتروني بالفعل
@@ -60,6 +66,11 @@ if (isset($_POST['logout'])) {
     header("Location: login-superadmin.php");
     exit();
 }
+
+
+        $_SESSION['role'] = 'super admin'; 
+             
+      
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +99,11 @@ if (isset($_POST['logout'])) {
             <div class="success-message"><?php echo $success_message; ?></div>
         <?php endif; ?>
 
-        <!-- نموذج إضافة مدير جديد -->
+        <form method="get" action="all-users.php">
+    <button type="submit">view user Details</button>
+</form>
+
+<h3>Add admin</h3>
         <form method="post" action="">
             <label>Username</label>
             <input type="text" name="username" required>
@@ -119,12 +134,13 @@ if (isset($_POST['logout'])) {
                     <td><?php echo $admin['CustomerID']; ?></td>
                     <td><?php echo $admin['username']; ?></td>
                     <td><?php echo $admin['Email']; ?></td>
-                    <td><?php echo $admin['phone']; ?></td> <!-- عرض رقم الهاتف -->
+                    <td><?php echo $admin['phone']; ?></td> 
                     <td>
-                        <form method="post" action="edit-admin.php"> <!-- افترض أن لديك صفحة edit_admin.php -->
-                            <input type="hidden" name="admin_id" value="<?php echo $admin['CustomerID']; ?>">
-                            <button type="submit" name="edit_admin"><i class='fa fa-pencil'></i> Edit</button>
-                        </form>
+                    <form method="get" action="edit-admin.php">
+    <input type="hidden" name="admin_id" value="<?php echo $admin['CustomerID']; ?>">
+    <button type="submit"><i class='fa fa-pencil'></i> Edit</button>
+</form>
+
                         <form method="post" action="">
                             <input type="hidden" name="admin_id" value="<?php echo $admin['CustomerID']; ?>">
                             <button type="submit" name="delete_admin">Remove</button>
