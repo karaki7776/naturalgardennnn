@@ -1,27 +1,16 @@
 <?php
 session_start();
+include "config.php"; // ملف الاتصال بقاعدة البيانات
 
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "naturalgarden";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
+// تحقق من تسجيل الدخول
 if (!isset($_SESSION['CustomerID'])) {
-    echo "No user is logged in.";
+    header("location:login-signin.php");
     exit();
 }
 
 $customerID = $_SESSION['CustomerID'];
 
-
+// الحصول على تفاصيل المستخدم
 $sql = "SELECT * FROM users WHERE CustomerID = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $customerID);
@@ -30,16 +19,16 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
-    $username = isset($user['username']) ? $user['username'] : 'Unknown User';
-    $email = isset($user['Email']) ? $user['Email'] : 'No Email';
-    $address = isset($user['Address']) ? $user['Address'] : 'No Address';
+    $username = $user['username'] ?? 'Unknown User';
+    $email = $user['Email'] ?? 'No Email';
+    $address = $user['Address'] ?? 'No Address';
     $phone = isset($user['phone']) ? $user['phone'] : 'No Phone';
 } else {
     echo "User not found.";
     exit();
 }
 
-
+// الحصول على تفاصيل السلة
 $sqlCart = "SELECT p.ProductName, c.Quantity, p.Price, p.ProductID 
             FROM cart c 
             JOIN products p ON c.ProductID = p.ProductID 
@@ -49,13 +38,12 @@ $stmtCart->bind_param("i", $customerID);
 $stmtCart->execute();
 $resultCart = $stmtCart->get_result();
 
-
 $totalAmount = 0;
 $products = [];
 
 if ($resultCart->num_rows > 0) {
     while ($row = $resultCart->fetch_assoc()) {
-        $products[] = $row; 
+        $products[] = $row;
         $totalAmount += $row['Quantity'] * $row['Price'];
     }
 } else {
@@ -67,9 +55,47 @@ if ($resultCart->num_rows > 0) {
 $deliveryCharge = 5.00;
 $totalAmountWithDelivery = $totalAmount + $deliveryCharge;
 
+// إذا تم إرسال الطلب
+$orderPlaced = false;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // إدخال الطلب في جدول الطلبات
+    $sqlOrder = "INSERT INTO orders (customerID, orderDate, totalAmount) VALUES (?, NOW(), ?)";
+    $stmtOrder = $conn->prepare($sqlOrder);
+    $stmtOrder->bind_param("id", $customerID, $totalAmountWithDelivery);
+
+    if ($stmtOrder->execute()) {
+        $orderID = $conn->insert_id;
+
+        // إدخال تفاصيل الطلب في جدول تفاصيل الطلبات
+        $sqlOrderDetails = "INSERT INTO ordersdetail (OrderID, ProductID, Quantity, Price) VALUES (?, ?, ?, ?)";
+        $stmtOrderDetails = $conn->prepare($sqlOrderDetails);
+
+        foreach ($products as $product) {
+            $stmtOrderDetails->bind_param(
+                "iiid",
+                $orderID,
+                $product['ProductID'],
+                $product['Quantity'],
+                $product['Price']
+            );
+            $stmtOrderDetails->execute();
+        }
+
+        // حذف المنتجات من السلة
+        $sqlClearCart = "DELETE FROM cart WHERE CustomerID = ?";
+        $stmtClearCart = $conn->prepare($sqlClearCart);
+        $stmtClearCart->bind_param("i", $customerID);
+        $stmtClearCart->execute();
+
+        $orderPlaced = true;
+    } else {
+        echo "Error placing order.";
+    }
+}
+
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,45 +103,67 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="css/checkout.css">
- <!--font awesome for icons------->
- <link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-     <!----favicom-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="css/favicom.png" type="image/x-icon">
-    <!--remix icon-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
-    rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <script>
+        function redirectToHomePage() {
+            setTimeout(() => {
+                window.location.href = 'homepage.php';
+            }, 2000);
+        }
+    </script>
 </head>
 <body>
-       
 <a href="cart.php" class="back-arrow">
     <i class="fas fa-arrow-left"></i>
 </a>
-    <h2>Checkout</h2>
-    <div class="checkout-summary">
+<h2>Checkout</h2>
+<div class="checkout-summary">
+    <?php if ($orderPlaced): ?>
+        <p class="success-message" id="success-message">Your order has been placed successfully!</p>
+        <script>
+            // Call the redirection function when order is placed
+            redirectToHomePage();
+        </script>
+    <?php else: ?>
         <p>Username: <?php echo htmlspecialchars($username); ?></p>
         <p>Email: <?php echo htmlspecialchars($email); ?></p>
-        <p>Address: <?php echo htmlspecialchars($address); ?></p>
-        <p>Phone: <?php echo htmlspecialchars($phone); ?></p>
+        <p>Phone: 
+    <?php 
+        if ($phone === 'No Phone') {
+            echo '<a href="edit-profile.php" style="color: red;">Please add your phone number</a>';
+        } else {
+            echo htmlspecialchars($phone);
+        }
+    ?>
+</p>
 
+<p>Address: 
+    <?php 
+        if ($address === 'No Address') {
+            echo '<a href="edit-profile.php" style="color: red;">Please add your address</a>';
+        } else {
+            echo htmlspecialchars($address);
+        }
+    ?>
+</p>
         <h3>Products Ordered:</h3>
         <ul>
-        <?php
-        foreach ($products as $product) {
-            echo "<li>" . htmlspecialchars($product['ProductName']) . " - Quantity: " . htmlspecialchars($product['Quantity']) . " - Price: $" . number_format($product['Price'], 2) . "</li>";
-        }
-        ?>
+        <?php foreach ($products as $product): ?>
+            <li>
+                <?php echo htmlspecialchars($product['ProductName']); ?> - 
+                Quantity: <?php echo htmlspecialchars($product['Quantity']); ?> - 
+                Price: $<?php echo number_format($product['Price'], 2); ?>
+            </li>
+        <?php endforeach; ?>
         </ul>
 
         <p>Total Amount: $<?php echo number_format($totalAmount, 2); ?></p>
         <p>Delivery Charge: $<?php echo number_format($deliveryCharge, 2); ?></p>
         <p><strong>Total with Delivery: $<?php echo number_format($totalAmountWithDelivery, 2); ?></strong></p>
-
-     
-
-
-
-        <!-- خيارات الدفع -->
-        <h3>Payment Methods:</h3>
+  <!-- خيارات الدفع -->
+  <h3>Payment Methods:</h3>
         <div class="payment-methods">
             <label class="payment-option">
                 <input type="radio" name="paymentMethod" value="visa" id="visaOption">
@@ -187,21 +235,17 @@ $conn->close();
             });
         });
     </script>
-</body>
-</html>
 
 
 
 
-        <!-- زر لإتمام الدفع -->
-        <form action="place_order.php" method="post">
-            <input type="hidden" name="totalAmountWithDelivery" value="<?php echo number_format($totalAmountWithDelivery, 2); ?>">
+
+    
+        <!-- زر لإتمام الطلب -->
+        <form method="post">
             <button type="submit">Place Order</button>
         </form>
-    </div>
-    
-    
+    <?php endif; ?>
+</div>
 </body>
-
-
 </html>
